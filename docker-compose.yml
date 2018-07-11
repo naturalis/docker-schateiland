@@ -1,7 +1,7 @@
 version: '3'
 services:
   apache:
-    image: "naturalis/schateiland:0.0.1"
+    image: "naturalis/schateiland"
     restart: unless-stopped
     env_file:
       - .env
@@ -12,7 +12,7 @@ services:
     networks:
       - default
   db:
-    image: "mysql"
+    image: "mysql:5"
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
