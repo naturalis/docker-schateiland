@@ -5,6 +5,11 @@ services:
     restart: unless-stopped
     env_file:
       - .env
+    logging:
+      driver: "json-file"
+      options:
+        max-size: '10m'
+        max-file: '5'
     ports:
      - "80:80"
     volumes:
@@ -16,6 +21,11 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: '10m'
+        max-file: '5'
     networks:
       - default
     volumes:
